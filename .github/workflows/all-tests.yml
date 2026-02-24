@@ -115,7 +115,7 @@ jobs:
 
       - name: Install git-annex
         shell: bash
-        if: env.RUN_EXTRACTORS_TESTS == 'true'
+        if: env.RUN_EXTRACTORS_TESTS == 'true' || env.RUN_PREPROCESSING_TESTS == 'true'
         run: |
           pip install datalad-installer
           if [ ${{ runner.os }} = 'Linux' ]; then
