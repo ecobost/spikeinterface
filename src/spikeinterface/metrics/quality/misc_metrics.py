@@ -1021,8 +1021,10 @@ def compute_amplitude_cutoffs(
             amplitudes_bins_min_ratio,
         )
 
-    if np.any(np.isnan(list(all_fraction_missing.values()))):
-        warnings.warn(f"Some units have too few spikes : amplitude_cutoff is set to NaN")
+    units_with_few_spikes = [unit_id for unit_id, amp_cutoff in all_fraction_missing.items() if np.isnan(amp_cutoff)]
+    if len(units_with_few_spikes) > 0:
+        min_num_spikes = amplitudes_bins_min_ratio * num_histogram_bins
+        warnings.warn(f"Amplitude cutoff set to NaN for units {units_with_few_spikes}: too few spikes (< {min_num_spikes}).")
 
     return all_fraction_missing
 
