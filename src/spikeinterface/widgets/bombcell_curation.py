@@ -30,7 +30,7 @@ class BombcellUpsetPlotWidget(BaseWidget):
         "non_soma", "non_soma_good", "non_soma_mua".
     thresholds : dict, optional
         Threshold dictionary with structure "noise", "mua", "non-somatic" as sections. Each section contains
-        metric names keys with "greater" and "less" thresholds. 
+        metric names keys with "greater" and "less" thresholds.
         If None, uses default thresholds.
     unit_labels_to_plot : list of str, optional
         List of unit labels to include in the plot. If None, defaults to all labels in thresholds.

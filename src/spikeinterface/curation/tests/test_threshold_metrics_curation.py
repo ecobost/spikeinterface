@@ -219,3 +219,12 @@ def test_threshold_metrics_label_units_missing_metric_raises():
     thresholds = {"does_not_exist": {"greater": 0.0}}
     with pytest.raises(ValueError, match="specified in thresholds are not present"):
         threshold_metrics_label_units(metrics, thresholds)
+
+
+def test_threshold_metrics_label_units_invalid_threshold_keys_raises():
+    import pandas as pd
+
+    metrics = pd.DataFrame({"m1": [1.0]}, index=[0])
+    thresholds = {"m1": {"greater": 0.0, "invalid_key": 1.0}}
+    with pytest.raises(ValueError, match="contains invalid keys"):
+        threshold_metrics_label_units(metrics, thresholds)

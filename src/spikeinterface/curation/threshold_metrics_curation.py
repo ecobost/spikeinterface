@@ -75,6 +75,14 @@ def threshold_metrics_label_units(
             f"Available metrics are: {metrics.columns.tolist()}"
         )
 
+    # Check that threshold dictionaries contain only valid keys
+    valid_keys = {"greater", "less", "abs"}
+    for metric_name, threshold in thresholds_dict.items():
+        if not set(threshold).issubset(valid_keys):
+            raise ValueError(
+                f"Threshold for metric '{metric_name}' contains invalid keys {set(threshold) - valid_keys}."
+            )
+
     if operator not in ("and", "or"):
         raise ValueError("operator must be 'and' or 'or'")
 
