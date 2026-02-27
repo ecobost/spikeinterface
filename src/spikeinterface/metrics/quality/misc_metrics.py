@@ -1031,7 +1031,7 @@ class AmplitudeCutoff(BaseMetric):
     metric_name = "amplitude_cutoff"
     metric_function = compute_amplitude_cutoffs
     metric_params = {
-        "num_histogram_bins": 200,
+        "num_histogram_bins": 100,
         "histogram_smoothing_value": 3,
         "amplitudes_bins_min_ratio": 5,
     }
@@ -1634,7 +1634,7 @@ def isi_violations(spike_trains, total_duration_s, isi_threshold_s=0.0015, min_i
 
 def amplitude_cutoff(
     amplitudes,
-    num_histogram_bins=500,
+    num_histogram_bins=100,
     histogram_smoothing_value=3,
     amplitudes_bins_min_ratio=5,
 ):
