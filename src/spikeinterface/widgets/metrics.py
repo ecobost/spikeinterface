@@ -435,20 +435,14 @@ class MetricsHistogramsWidget(BaseWidget):
             thresh = thresholds.get(metric_name, {})
             has_thresh = False
             if not is_threshold_disabled(thresh.get("greater", None)):
-                label = (
-                    f"greater={int(thresh['greater'])}"
-                    if float(thresh["greater"]).is_integer()
-                    else f"greater={float(thresh['greater']):.2f}"
-                )
-                ax.axvline(thresh["greater"], color="red", ls="--", lw=2, label=label)
+                value = float(thresh["greater"])
+                label = f">={int(value)}" if value.is_integer() else f">={value:.2f}"
+                ax.axvline(value, color="red", ls="--", lw=2, label=label)
                 has_thresh = True
             if not is_threshold_disabled(thresh.get("less", None)):
-                label = (
-                    f"less={int(thresh['less'])}"
-                    if float(thresh["less"]).is_integer()
-                    else f"less={float(thresh['less']):.2f}"
-                )
-                ax.axvline(thresh["less"], color="blue", ls="--", lw=2, label=label)
+                value = float(thresh["less"])
+                label = f"<={int(value)}" if value.is_integer() else f"<={value:.2f}"
+                ax.axvline(value, color="blue", ls="--", lw=2, label=label)
                 has_thresh = True
 
             ax.set_xlabel(metric_name)
