@@ -307,7 +307,7 @@ further curation and make downstream analysis cleaner.
 Remove units from ``SortingAnalyzer``
 -------------------------------------
 
-To remove units from your ``SortingAnalyzer``, you can use the ``select_units`` function. 
+To remove units from your ``SortingAnalyzer``, you can use the ``select_units`` function.
 
 After auto-labeling, we can easily remove the “noise” units for
 downstream analysis:
