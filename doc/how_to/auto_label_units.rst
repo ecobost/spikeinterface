@@ -79,7 +79,7 @@ curation:
 
 
 1. Quality-metrics based curation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 A simple solution is to use a filter based on quality metrics. To do so,
 we can use the ``spikeinterface.curation.threshold_metrics_label_units``
@@ -143,7 +143,7 @@ across all units:
 .. image:: auto_label_units_files/auto_label_units_14_0.png
 
 
-1. Bombcell
+2. Bombcell
 -----------
 
 **Bombcell** ([Fabre]_) is another threshold-based method that also uses
@@ -248,8 +248,8 @@ contamination (``rp_contamination``).
 .. image:: auto_label_units_files/auto_label_units_23_1.png
 
 
-UnitRefine
-----------
+3. UnitRefine
+------------
 
 **UnitRefine** ([Jain]_) also uses quality and template metrics, but in
 a different way. It uses pre-trained classifiers to trained on
@@ -295,20 +295,19 @@ page <https://huggingface.co/SpikeInterface>`__.
 .. image:: auto_label_units_files/auto_label_units_27_1.png
 
 
-   **NOTE:** If you want to train your own models, see the `UnitRefine
-   repo <%60https://github.com/anoushkajain/UnitRefine%60>`__ for
-   instructions!
+**NOTE:** If you want to train your own models, see the `UnitRefine
+repo <%60https://github.com/anoushkajain/UnitRefine%60>`__ for
+instructions!
 
 This “How To” demonstrated how to automatically label units after spike
 sorting with different strategies. We recommend running **Bombcell** and
 **UnitRefine** as part of your pipeline. These methods will facilitate
 further curation and make downstream analysis cleaner.
 
-To remove units from your ``SortingAnalyzer``, you can simply use the
-``select_units`` function:
-
 Remove units from ``SortingAnalyzer``
 -------------------------------------
+
+To remove units from your ``SortingAnalyzer``, you can use the ``select_units`` function. 
 
 After auto-labeling, we can easily remove the “noise” units for
 downstream analysis:
